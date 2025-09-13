@@ -1,0 +1,116 @@
+:root {
+  --bg: #f9fafb;
+  --text: #1f2937;
+  --accent: #6366f1;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* Hero */
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(120deg, #6366f1, #9333ea);
+  color: white;
+  text-align: center;
+  padding: 0 20px;
+}
+.hero h1 {
+  font-size: 2.5rem;
+}
+.hero .tagline {
+  margin-top: 15px;
+  font-size: 1.2rem;
+  opacity: 0.85;
+}
+
+/* Sections */
+section {
+  padding: 60px 20px;
+  max-width: 900px;
+  margin: auto;
+}
+h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Reveal Animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.7s ease-out;
+}
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Projects */
+.projects-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+.project-card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.project-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+.project-card h3 {
+  margin-top: 0;
+}
+.project-link {
+  display: inline-block;
+  margin-top: 12px;
+  color: var(--accent);
+  font-weight: bold;
+  text-decoration: none;
+}
+.project-link:hover {
+  text-decoration: underline;
+}
+
+/* Contact */
+#contact ul {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+#contact li {
+  margin: 8px 0;
+}
+
+/* Floating blob background */
+body::before {
+  content: "";
+  position: fixed;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+  top: -100px;
+  left: -100px;
+  opacity: 0.15;
+  border-radius: 50%;
+  animation: float 15s ease-in-out infinite alternate;
+  z-index: -1;
+}
+@keyframes float {
+  from { transform: translateY(0) translateX(0); }
+  to { transform: translateY(60px) translateX(40px); }
+}
